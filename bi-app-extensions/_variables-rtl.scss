@@ -1,0 +1,15 @@
+
+@import "../bi-app/variables-rtl";
+
+//------------------------------------------------------------------------------
+// custom variables
+//------------------------------------------------------------------------------
+
+
+// for use in selectors to swap :before and :after
+// example: div:#{$before}
+//     ltr: div:before
+//     rtl: div:after
+
+$before: after;
+$after: before;

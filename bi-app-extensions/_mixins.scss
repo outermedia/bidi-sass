@@ -1,0 +1,29 @@
+
+@import "../bi-app/mixins";
+
+
+@mixin before($map) {
+
+    @if ($bi-app-direction == ltr) {
+        &:before {
+            @include unwrap-style-map($map);
+        }
+    } @else {
+        &:after {
+            @include unwrap-style-map($map);
+        }
+    }
+}
+
+@mixin after($map) {
+
+    @if ($bi-app-direction == ltr) {
+        &:after {
+            @include unwrap-style-map($map);
+        }
+    } @else {
+        &:before {
+            @include unwrap-style-map($map);
+        }
+    }
+}
