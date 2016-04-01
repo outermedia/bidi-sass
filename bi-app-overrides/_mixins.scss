@@ -1,0 +1,65 @@
+
+@import "../bi-app/mixins";
+
+//------------------------------------------------------------------------------
+// Utility to simply write a single style property
+//------------------------------------------------------------------------------
+@mixin write-style-property($property, $value) {
+    #{$property}: #{$value};
+}
+
+
+
+//------------------------------------------------------------------------------
+// Utility to write a map of style properties
+//------------------------------------------------------------------------------
+@mixin unwrap-style-map($style-map) {
+    @each $property, $value in $style-map {
+        @include write-style-property($property, $value);
+    }
+}
+
+
+
+//------------------------------------------------------------------------------
+// Utility to apply compact style properties from list values
+//------------------------------------------------------------------------------
+@mixin apply-style-value($property, $value) {
+    @if (type-of($value) == list && length($value) == 4) {
+        @include bi-app-compact(
+            $property,
+            nth($value, 1), // top
+            nth($value, 2), // right
+            nth($value, 3), // bottom
+            nth($value, 4) // left
+        );
+    } @else {
+        @include write-style-property($property, $value);
+    }
+}
+
+
+
+//------------------------------------------------------------------------------
+// Compact style mixin overrides to allow list value for more natural CSS syntax
+//------------------------------------------------------------------------------
+
+@mixin padding($values) {
+    @include apply-style-value(padding, $values);
+}
+
+@mixin margin($values) {
+    @include apply-style-value(margin, $values);
+}
+
+@mixin border-width($values) {
+    @include apply-style-value(border-width, $values);
+}
+
+@mixin border-style($values) {
+    @include apply-style-value(border-style, $values);
+}
+
+@mixin border-color($values) {
+    @include apply-style-value(border-color, $values);
+}
