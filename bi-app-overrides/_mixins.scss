@@ -11,6 +11,17 @@
 
 
 //------------------------------------------------------------------------------
+// Utility to write a map of style properties
+//------------------------------------------------------------------------------
+@mixin write-style-properties($style-map) {
+    @each $property, $value in $style-map {
+        @include write-style-property($property, $value);
+    }
+}
+
+
+
+//------------------------------------------------------------------------------
 // Utility to apply compact style properties from list values
 //------------------------------------------------------------------------------
 @mixin apply-style-value($property, $value) {

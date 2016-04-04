@@ -6,11 +6,11 @@
 
     @if ($bi-app-direction == ltr) {
         &:before {
-            @include unwrap-style-map($map);
+            @include write-style-properties($map);
         }
     } @else {
         &:after {
-            @include unwrap-style-map($map);
+            @include write-style-properties($map);
         }
     }
 }
@@ -19,11 +19,11 @@
 
     @if ($bi-app-direction == ltr) {
         &:after {
-            @include unwrap-style-map($map);
+            @include write-style-properties($map);
         }
     } @else {
         &:before {
-            @include unwrap-style-map($map);
+            @include write-style-properties($map);
         }
     }
 }
