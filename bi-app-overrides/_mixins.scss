@@ -25,7 +25,7 @@
 // Utility to apply compact style properties from list values
 //------------------------------------------------------------------------------
 @mixin apply-style-value($property, $value) {
-    @if (type-of($value) == list && length($value) == 4) {
+    @if (type-of($value) == list and length($value) == 4) {
         @include bi-app-compact(
             $property,
             nth($value, 1), // top
