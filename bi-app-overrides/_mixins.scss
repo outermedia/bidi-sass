@@ -14,8 +14,8 @@
 // Utility to write a map of style properties
 //------------------------------------------------------------------------------
 @mixin write-style-properties($style-map) {
-    @each $property, $value in $style-map {
-        @include write-style-property($property, $value);
+    @each $map-entry in $style-map {
+        @include write-style-property(nth($map-entry, 1), nth($map-entry, 2));
     }
 }
 
